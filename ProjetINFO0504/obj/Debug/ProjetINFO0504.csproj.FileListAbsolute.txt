@@ -1,0 +1,7 @@
+C:\Users\Lucas\Documents\SharpDevelop Projects\ProjetINFO0504\ProjetINFO0504\obj\Debug\ProjetINFO0504.csprojResolveAssemblyReference.cache
+C:\Users\Lucas\Documents\SharpDevelop Projects\ProjetINFO0504\ProjetINFO0504\obj\Debug\ProjetINFO0504.MainForm.resources
+C:\Users\Lucas\Documents\SharpDevelop Projects\ProjetINFO0504\ProjetINFO0504\obj\Debug\ProjetINFO0504.csproj.GenerateResource.Cache
+C:\Users\Lucas\Documents\SharpDevelop Projects\ProjetINFO0504\ProjetINFO0504\bin\Debug\ProjetINFO0504.exe
+C:\Users\Lucas\Documents\SharpDevelop Projects\ProjetINFO0504\ProjetINFO0504\bin\Debug\ProjetINFO0504.pdb
+C:\Users\Lucas\Documents\SharpDevelop Projects\ProjetINFO0504\ProjetINFO0504\obj\Debug\ProjetINFO0504.exe
+C:\Users\Lucas\Documents\SharpDevelop Projects\ProjetINFO0504\ProjetINFO0504\obj\Debug\ProjetINFO0504.pdb
