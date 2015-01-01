@@ -49,7 +49,7 @@ namespace ProjetINFO0504
 									this.fichierToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(653, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(791, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -66,21 +66,21 @@ namespace ProjetINFO0504
 			this.jeuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.jeuDeDameToolStripMenuItem});
 			this.jeuToolStripMenuItem.Name = "jeuToolStripMenuItem";
-			this.jeuToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
-			this.jeuToolStripMenuItem.Text = "Jeu";
+			this.jeuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.jeuToolStripMenuItem.Text = "Jeux";
 			// 
 			// jeuDeDameToolStripMenuItem
 			// 
 			this.jeuDeDameToolStripMenuItem.Name = "jeuDeDameToolStripMenuItem";
-			this.jeuDeDameToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-			this.jeuDeDameToolStripMenuItem.Text = "Jeu de dame";
+			this.jeuDeDameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.jeuDeDameToolStripMenuItem.Text = "Jeu de dames";
 			this.jeuDeDameToolStripMenuItem.Click += new System.EventHandler(this.JeuDeDameToolStripMenuItemClick);
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(653, 577);
+			this.ClientSize = new System.Drawing.Size(791, 577);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "MainForm";
@@ -102,15 +102,63 @@ namespace ProjetINFO0504
 		{
 			try
 			{
-				Case c = (Case)sender;
-				c.jouer_dame();
+				if(j != null)
+				{
+					Case c = (Case)sender;
+					int s = c.jouer_dame(j.getPlateau());
+					if(s != 0)
+					{
+						if(Case.coup)
+						{
+							Case.j = !Case.j;
+						}
+						j.ajouterScore(Case.j,-s);
+						if(Case.j)
+						{
+							s1.Text = j.getScore(true).ToString();
+						}
+						else
+						{
+							s2.Text = j.getScore(false).ToString();
+						}
+						if(Case.coup)
+						{
+							Case.j = !Case.j;
+						}
+					}
+					
+					if(j.getScore(true) == 0)
+					{
+						System.Windows.Forms.MessageBox.Show(j.getNom(false)+" gagne la partie");
+						finPartie();
+						
+					}
+					else if(j.getScore(false) == 0)
+					{
+						System.Windows.Forms.MessageBox.Show(j.getNom(true)+" gagne la partie");
+						finPartie();
+					}
+				}
+				
+				
 			}
 			catch(System.InvalidCastException ice)
 			{
 				System.Console.Error.WriteLine("Une autre exception a eu lieu : "+ice.Message);
 			}
-			
-			
+		}
+		
+		void b1_Click(object sender, System.EventArgs e)
+		{
+			if(Case.j)
+			{
+				System.Windows.Forms.MessageBox.Show(j.getNom(false)+" gagne la partie");
+			}
+			else
+			{
+				System.Windows.Forms.MessageBox.Show(j.getNom(true)+" gagne la partie");
+			}
+			finPartie();
 		}
 	}
 }

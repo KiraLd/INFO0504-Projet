@@ -37,7 +37,7 @@ namespace ProjetINFO0504
 			p = new Case[size_x,size_y];
 		}
 		
-		public Plateau(int loc_px, int loc_py, int size_px, int size_py ,int nbE,int size_x, int size_y, System.Drawing.Color c, String d)
+		public Plateau(int loc_px, int loc_py, int size_px, int size_py ,int nbE,int size_x, int size_y, System.Drawing.Color c, String d, bool je)
 		{
 			this.loc_x = loc_px;
 			this.loc_y = loc_py;
@@ -47,7 +47,7 @@ namespace ProjetINFO0504
 			//création de la matrice
 			p = new Case[size_x,size_y];
 			
-			initialiser(nbE,size_x,size_y,c,d);
+			initialiser(nbE,size_x,size_y,c,d,je);
 			if(d.Equals("dames"))
 			{
 				dame();
@@ -56,7 +56,7 @@ namespace ProjetINFO0504
 		}
 		
 		//initialises toutes les cases
-		private void initialiser(int nbE, int size_x, int size_y, System.Drawing.Color c, String d)
+		private void initialiser(int nbE, int size_x, int size_y, System.Drawing.Color c, String d, bool je)
 		{
 			int i;
 			int j;
@@ -69,7 +69,7 @@ namespace ProjetINFO0504
 				for(j = 0; j<this.size_y; j++)
 				{
 					y += size_y +2;
-					p[i,j] = new Case(nbE,i,j, x, y,size_x,size_y,c,d);
+					p[i,j] = new Case(nbE,i,j, x, y,size_x,size_y,c,d,je);
 				}
 			}
 			
