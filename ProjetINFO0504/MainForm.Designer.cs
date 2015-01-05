@@ -19,7 +19,7 @@ namespace ProjetINFO0504
 		/// Disposes resources used by the form.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
+		protected void  Dispose(bool disposing)
 		{
 			if (disposing) {
 				if (components != null) {
@@ -105,13 +105,13 @@ namespace ProjetINFO0504
 				if(j != null)
 				{
 					Case c = (Case)sender;
-					int s = c.jouer_dame(j.getPlateau());
+					int s = jouer_dame(c,j.getPlateau());
 					if(s != 0)
 					{
-						if(Case.coup)
-						{
+						if(Case.coup) //à retirer pour le multi
+						{				
 							Case.j = !Case.j;
-						}
+						}				
 						j.ajouterScore(Case.j,-s);
 						if(Case.j)
 						{
@@ -121,10 +121,16 @@ namespace ProjetINFO0504
 						{
 							s2.Text = j.getScore(false).ToString();
 						}
-						if(Case.coup)
+						//à rajouter: maj score adverse
+						if(Case.coup)//à retirer pour le multi
 						{
 							Case.j = !Case.j;
 						}
+						
+					}
+					if(!Case.coup)
+					{
+						//à rajouter: attente du coup adverse
 					}
 					
 					if(j.getScore(true) == 0)
