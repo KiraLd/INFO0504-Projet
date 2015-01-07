@@ -298,7 +298,7 @@ namespace ProjetINFO0504
 					if(priseJouable(x - 2, y - 2, x, y, p) || priseJouable(x + 2, y - 2, x, y, p) || priseJouable(x - 2, y + 2, x, y, p) || priseJouable(x + 2, y + 2,x ,y ,p))
 					{
 						Case.coup = true;
-						this.BackColor = System.Drawing.Color.Green;
+						c.BackColor = System.Drawing.Color.Green;
 					}
 					else
 					{
@@ -312,7 +312,7 @@ namespace ProjetINFO0504
 					if(priseJouableDame(c,p))
 					{
 						Case.coup = true;
-						this.BackColor = System.Drawing.Color.Green;
+						c.BackColor = System.Drawing.Color.Green;
 					}
 					else
 					{
@@ -401,7 +401,7 @@ namespace ProjetINFO0504
 					if(priseJouableDame(c,p))
 					{
 						Case.coup = true;
-						this.BackColor = System.Drawing.Color.Green;
+						c.BackColor = System.Drawing.Color.Green;
 					}
 					else
 					{
@@ -541,6 +541,9 @@ namespace ProjetINFO0504
 				c.setEtat(true,1);
 				c.setEtat(Case.j,0);
 				Case.test.setCouleur(System.Drawing.Color.White);
+				Case.test.setEtat(false,1);
+				Case.test.setEtat(false,0);
+				Case.test.setEtat(false,2);
 				Case.test = null;
 			}
 			//à rajouter: maj damier adverse
